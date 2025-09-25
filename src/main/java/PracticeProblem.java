@@ -1,7 +1,11 @@
+import java.util.ArrayList;
+
 public class PracticeProblem {
 	public static void main(String args[]) {
 
 	}
+
+	final static int MAXIMUM = 10;
 
 	public static int calculate(int a, int b, char c) {
 		switch (c) {
@@ -15,8 +19,16 @@ public class PracticeProblem {
 		}
 	}
 
-	public static boolean totalWordsChecker(String a) {
-		return a.split(" ").length <= 10 ? true : false;
+	public static boolean totalWordsChecker(String m) {
+		String[] b = m.split("[^A-Za-z'_]");
+		ArrayList<String> c = new ArrayList<String>();
+		for (int i = 0; i < b.length; i++) {
+			if (b[i].strip() != "") {
+			    //System.out.println(b[i]);
+				c.add(b[i]);
+			}
+		}
+		return c.size() <= MAXIMUM ? true : false;
 	}
 
 	public static String minString(String a, String b, String c) {
